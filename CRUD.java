@@ -19,5 +19,6 @@ public class CRUD {
         input.close();
         
         System.out.println("Ciao!");
+        System.out.println("Ciao!");
     }
 }
