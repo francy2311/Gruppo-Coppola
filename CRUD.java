@@ -17,5 +17,7 @@ public class CRUD {
         System.out.println("Hai inserito: " + info);
 
         input.close();
+        
+        
     }
 }
