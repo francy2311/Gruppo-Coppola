@@ -18,6 +18,6 @@ public class CRUD {
 
         input.close();
         
-        
+        System.out.println("Ciao!");
     }
 }
