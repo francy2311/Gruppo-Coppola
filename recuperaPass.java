@@ -12,11 +12,17 @@ public class recuperaPass {
             if (vecchiaPass.equals(U.getPassword())) {
                 System.out.println("Insersci la nuova password: ");
                 String nuovaPass= sc.nextLine();
-                U.setPassword(nuovaPass);
+                System.out.println("Conferma la nuova password: ");
+                String confermaPass= sc.nextLine();
+
+                if(nuovaPass.equals(confermaPass)){
+                    U.setPassword(nuovaPass);
+                }else{
+                    System.out.println("Le password non coincidono");
+                } 
+            }else{
+                System.out.println("Username errato/non esistente");
             }
-            
-        }else{
-            System.out.println("Username errato/non esistente");
         }
     }
 }
