@@ -3,32 +3,30 @@ import java.util.Scanner;
 /**
  * CRUD
  */
-public class CRUD extends Utente {
+public class CRUD{
     
     private String nome;
     private String cognome;
     private String email;
 
-    public CRUD(String username,String password,String nome,String cognome,String email){
-        super(username,password);
+    public CRUD(Utente utente,String nome,String cognome,String email){
         this.nome = nome;
         this.cognome = cognome;
         this.email = email;
+        utente=new Utente(nome,cognome,email);
     }
 
     @Override
     public String toString(){
-        return "Username"+getUsername()+"Nome: "+nome+" Cognome: "+cognome+" Email: "+email;
+        return "Nome: "+nome+" Cognome: "+cognome+" Email: "+email;
     }
 
-    public void modificaInformazioni(){
-        Scanner input = new Scanner(System.in);
-        System.out.println("Inserisci il nome: ");
-        this.nome = input.nextLine();
-        System.out.println("Inserisci il cognome: ");
-        this.cognome = input.nextLine();
-        System.out.println("Inserisci l'email: ");
-        this.email = input.nextLine();
+    public void modificaInformazioni(String nome,String cognome,String email){
+        this.nome = nome;
+       
+        this.cognome = cognome;
+        
+        this.email =  email;
     }
     
     public void cancellaInformazioni(){
