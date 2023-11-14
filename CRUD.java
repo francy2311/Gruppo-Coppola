@@ -21,18 +21,12 @@ public class CRUD{
         return "Nome: "+nome+" Cognome: "+cognome+" Email: "+email;
     }
 
-    public void modificaInformazioni(String nome,String cognome,String email){
-        this.nome = nome;
-       
-        this.cognome = cognome;
-        
-        this.email =  email;
+    public void modificaInformazioni(Utente utente,String nome,String cognome,String email){
+        utente=new Utente(nome,cognome,email);
     }
     
-    public void cancellaInformazioni(){
-        this.nome = "";
-        this.cognome = "";
-        this.email = "";
+    public void cancellaInformazioni(Utente utente){
+        utente=new Utente("","","");
     }
     
 }

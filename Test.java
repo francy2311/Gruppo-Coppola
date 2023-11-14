@@ -28,8 +28,9 @@ public class Test {
         //mostro il menù iniziale
         System.out.println("====Menù Iniziale====");
         System.out.println("1. Login");
-        System.out.println("2. Registrazione");                          
-        System.out.println("3. Esci");                               
+        System.out.println("2. Registrazione"); 
+        System.out.println("3. Recupero password");                           
+        System.out.println("4. Esci");                               
         System.out.println("Inserisci la tua scelta: ");//chiedo all'utente di inserire la scelta
         int scelta = sc.nextInt();//scelta dell'utente
 
@@ -39,7 +40,10 @@ public class Test {
                 accesso=login(sc.next(),sc.next(),ListaUtenti,utente);
                 break;
             case 2:
-
+                
+                break;
+            case 3:
+                recupero(ListaUtenti, sc.next());
                 break;
             default:
                 break;
@@ -71,12 +75,15 @@ public class Test {
             switch (scelta2) {
                 case 1:
                     crud=new CRUD(utente,nome,cognome, passwordUtente);
+                    System.out.println("Inserimento avvenuto con successo");
                     break;
                 case 2:
-                    crud.modificaInformazioni(nomeUtente, nomeUtente, passwordUtente);
+                    crud.modificaInformazioni(utente,nomeUtente, nomeUtente, passwordUtente);
+                    System.out.println("Modifica avvenuta con successo");
                     break;
                 case 3:
-                    crud.cancellaInformazioni();
+                    crud.cancellaInformazioni(utente);
+                    System.out.println("Cancellazione avvenuta con successo");
                     break;
 
                 default:
@@ -84,6 +91,7 @@ public class Test {
             }
         }
         
+
 }
 
     public static boolean login(String nomeUtente,String passwordUtente ,ArrayList<Utente> ListaUtenti,Utente utente){
@@ -127,6 +135,25 @@ public class Test {
         }
         
         return accesso;
+    }
+
+    public static void recupero(ArrayList<Utente> ListaUtenti, String username){
+        Scanner sc= new Scanner(System.in);
+        for(int i=0; i<ListaUtenti.size(); i++){
+            if (username.equals(ListaUtenti.get(i).getUsername())) { 
+    
+                System.out.println("Insersci la nuova password: ");
+                String nuovaPass= sc.nextLine();
+                System.out.println("Conferma la nuova password: ");
+                String confermaPass= sc.nextLine();
+                    
+                if(nuovaPass.equals(confermaPass)){
+                    ListaUtenti.get(i).setPassword(nuovaPass);
+                }else{
+                    System.out.println("Le password non coincidono");
+                } 
+            }
+        }
     }
 
 }
