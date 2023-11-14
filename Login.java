@@ -14,6 +14,7 @@
  * 
  */
 
+import java.util.Scanner;
 
 public class Login {
     
@@ -24,7 +25,7 @@ public class Login {
 
         String guessNome = "";                                                  //variabile che "raccoglie" il nome che inserisce l'utente
         String guessPassword = "";                                              //variabile che "raccoglie" la password che inserisce l'utente
-        Utente guessUtente = new Utente(***);                                        //utente "vuoto" che raccoglie il nome utente per poi fare il controllo password
+        Utente guessUtente = new Utente(String "", String "");                                        //utente "vuoto" che raccoglie il nome utente per poi fare il controllo password
         boolean utenteEsiste = false;
         int tentativi = 1;                                                      //numero di tentativi per accedere. l'ho inserito così che possiamo cambiarlo in futuro, se non vogliamo mantenerlo a 1 
         boolean accesso = false;
