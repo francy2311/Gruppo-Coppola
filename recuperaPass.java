@@ -22,7 +22,7 @@ public class recuperaPass {
                     System.out.println("Le password non coincidono");
                 } 
             }else{
-                System.out.println("Username errato/non esistente");
+                System.out.println("Username errato/non esistente!");
             }
         }
         }
