@@ -14,18 +14,19 @@
  * 
  */
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Login {
     
     //metodo login: esegue tutto quello che serve per fare il login. Restituisce un boolean, true se l'accesso è consentito, false se è rifiutato
-    public boolean Login (){
+    public boolean login(ArrayList<Utente> ListaUtenti){
 
         Scanner scanner = new Scanner(System.in);                               //creo uno scanner
 
         String guessNome = "";                                                  //variabile che "raccoglie" il nome che inserisce l'utente
         String guessPassword = "";                                              //variabile che "raccoglie" la password che inserisce l'utente
-        Utente guessUtente = new Utente(String "", String "");                                        //utente "vuoto" che raccoglie il nome utente per poi fare il controllo password
+        Utente guessUtente = new Utente(" ", " ");                                        //utente "vuoto" che raccoglie il nome utente per poi fare il controllo password
         boolean utenteEsiste = false;
         int tentativi = 1;                                                      //numero di tentativi per accedere. l'ho inserito così che possiamo cambiarlo in futuro, se non vogliamo mantenerlo a 1 
         boolean accesso = false;
@@ -41,7 +42,7 @@ public class Login {
             System.out.println("PROVA: utente inserito");                       //LINEA DI PROVA
 
             for (Utente utente1 : ListaUtenti) {                                 // sostituire utente e listautenti!
-                if (guessNome.equals(utente.getNome())) {
+                if (guessNome.equals(utente1.getUsername())) {
                     System.out.println("PROVA: l'utente esiste");               //LINEA DI PROVA
                     utenteEsiste = true;
                     guessUtente.setPassword(utente1.getPassword());                                            //***
