@@ -17,9 +17,7 @@ public class CRUD {
         System.out.println("Hai inserito: " + info);
 
         input.close();
-        
-        System.out.println("Ciao!");
-        System.out.println("Ciao!");
-        System.out.println("Ciao!");
+    
+        System.out.println("Mi chiamo francesco");
     }
 }
