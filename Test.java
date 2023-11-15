@@ -171,10 +171,19 @@ public class Test {
         while (true) {
             System.out.println("Inserisci un username unico: ");
             String username = sc.nextLine();
+
+            boolean user_esist = false;
+            for (Utente utente : ListaUtenti) {
+                if (utente.getUsername().equals(username)) {
+                    user_esist = true;
+                    break;
+                }
+            }
+
+            if (!user_esist) {
                 System.out.println("Inserisci una password: ");
                 String password = sc.nextLine();
 
-                ListaUtenti.add(new Utente(username, password));
                 Utente nuovoUtente = new Utente(username, password);
                 ListaUtenti.add(nuovoUtente);
 
@@ -184,6 +193,9 @@ public class Test {
 
                 System.out.println("Registrazione avvenuta con successo!");
                 break;
+            } else {
+                System.out.println("Username già esistente. Scegli un altro username.");
             }
+        }
         }
     }
