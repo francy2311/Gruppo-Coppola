@@ -1,5 +1,7 @@
 import java.lang.invoke.StringConcatFactory;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 import javax.sound.midi.Soundbank;
@@ -7,7 +9,10 @@ import javax.sound.midi.Soundbank;
 public class Test {
 
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
+        //Creazione della mappa di utenti
+        Map<Integer, Utente> mappaUtenti = new HashMap<>();
         ArrayList<Utente> ListaUtenti = new ArrayList<>();
         Utente  utente = new Utente("","");
         CRUD crud=new CRUD(null, null, null, null);                                                //creo un oggetto di tipo CRUD
@@ -40,7 +45,7 @@ public class Test {
                 accesso=login(sc.next(),sc.next(),ListaUtenti,utente);
                 break;
             case 2:
-                
+                registrazione(ListaUtenti, mappaUtenti);
                 break;
             case 3:
                 recupero(ListaUtenti, sc.next());
@@ -156,4 +161,29 @@ public class Test {
         }
     }
 
-}
+    public static void registrazione(ArrayList<Utente> ListaUtenti,Map<Integer, Utente> mappaUtenti){
+
+        Scanner sc = new Scanner(System.in);
+        for (int i = 0; i < ListaUtenti.size(); i++) {
+            mappaUtenti.put(i + 1, ListaUtenti.get(i));
+        }
+
+        while (true) {
+            System.out.println("Inserisci un username unico: ");
+            String username = sc.nextLine();
+                System.out.println("Inserisci una password: ");
+                String password = sc.nextLine();
+
+                ListaUtenti.add(new Utente(username, password));
+                Utente nuovoUtente = new Utente(username, password);
+                ListaUtenti.add(nuovoUtente);
+
+                // Genera un id per il nuovo utente
+                int nuovoId = mappaUtenti.size() + 1;
+                mappaUtenti.put(nuovoId, nuovoUtente);
+
+                System.out.println("Registrazione avvenuta con successo!");
+                break;
+            }
+        }
+    }
